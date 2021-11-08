@@ -1,0 +1,47 @@
+svg:first-of-type circle {
+    fill: #a2a2a2
+}
+
+svg:first-of-type :hover {
+    animation-name: anim;
+    animation-duration: 1s;
+}
+
+svg:last-of-type rect {
+    fill: royalblue;
+}
+
+svg:last-of-type :hover {
+    animation-name: anim_2;
+    animation-duration: 1s;
+}
+
+@keyframes anim {
+    0% {
+        fill: rgba(93, 93, 93, 0.7);
+    }
+    25% {
+        fill: rgba(93, 93, 93, 0.8);
+    }
+    50% {
+        fill: rgba(93, 93, 93, 0.9);
+    }
+    100% {
+        fill: rgba(93, 93, 93, 1);
+    }
+}
+
+@keyframes anim_2 {
+    0% {
+        fill: rgba(87, 58, 250, 0.6);
+    }
+    25% {
+        fill: rgba(87, 58, 250, 0.7);
+    }
+    50% {
+        fill: rgba(87, 58, 250, 0.8);
+    }
+    100% {
+        fill: rgba(87, 58, 250, 0.9);
+    }
+}
