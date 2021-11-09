@@ -5,7 +5,7 @@ body {
 }
 
 rect {
-    fill: steelblue;
+    fill: rgb(193, 65, 72);
     fill-opacity: 0.8;
 }
 
