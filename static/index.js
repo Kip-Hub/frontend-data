@@ -62,9 +62,8 @@ function update(new_data) {
         .attr('width', (d) => xscale(d.rating.average))
         .attr('y', (d) => yscale(d.name));
 
-    rect.select('title').text((d) => "season " + d.season + " episode " + d.number);
+    rect.select('title').text((d) => d.rating.average);
 }
-
 
 
 d3.select('#season_1').on('change', function() {
