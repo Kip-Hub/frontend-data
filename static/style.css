@@ -5,14 +5,9 @@ body {
 }
 
 rect {
-    fill: rgb(193, 65, 72);
-    fill-opacity: 0.8;
+    fill-opacity: 0.6;
 }
 
 rect:hover {
     fill-opacity: 1;
-}
-
-.axis {
-    font-size: smaller;
 }
