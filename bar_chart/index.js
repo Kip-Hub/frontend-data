@@ -84,7 +84,7 @@ d3.select('#season_1').on('change', function() {
     // This will be triggered when the user selects or unselects the checkbox
     const checked = d3.select(this).property('checked');
     if (checked === true) {
-        // Checkbox was just checked
+        // Checkbox was just checked    
 
         // Keep only data element whose country is US
         const filtered_data = data.filter((d) => d.season === 1);
