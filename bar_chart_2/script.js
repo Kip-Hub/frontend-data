@@ -22,10 +22,7 @@ const color = d3.scaleOrdinal()
     .domain(["a", "b", "c", "d", "e"])
     .range(d3.schemeDark2);
 
-
-d3.json(url, createChart);
-
-d3.json('https://api.tvmaze.com/shows/169/episodes')
+d3.json(url)
     .then((json) => {
         data = json;
         createChart(data);
@@ -91,8 +88,9 @@ function createBars(data, xscale, yscale) {
 d3.selectAll('#filter').on('change', (e) => {
     const selectedValue = e.target.value;
     const seasonValue = +selectedValue.split('_')[1];
-    console.log(seasonValue);
     const filtered_data = data.filter(d => d.season === seasonValue);
+    width = 800 - margin.left - margin.right;
+    height = 400 - margin.top - margin.bottom;
     createChart(filtered_data)
     cleanUpAxis();
 })
@@ -101,6 +99,6 @@ d3.selectAll('#filter').on('change', (e) => {
 const cleanUpAxis = () => {
     const oldXAxis = document.getElementsByClassName("x axis")[0];
     const oldYAxis = document.getElementsByClassName("y axis")[0];
-    oldXAxis.remove();
     oldYAxis.remove();
 }
+oldXAxis.remove();
