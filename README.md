@@ -1,6 +1,6 @@
 # Frontend Data
 
-![preview](https://i.imgur.com/ikHjM0o.png)
+![preview](https://i.imgur.com/iHBCa2r.png)
 <details>
 
 <summary>Filtering the data</summary
