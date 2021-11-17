@@ -53,8 +53,8 @@ function createAxis(data) {
 
 function createBars(data, xscale, yscale) {
     const color = d3.scaleOrdinal()
-    .domain(["a", "b", "c", "d", "e"])
-    .range(d3.schemeDark2);    
+        .domain(["a", "b", "c", "d", "e"])
+        .range(d3.schemeDark2);
     const rect = g.selectAll('rect')
         .data(data).join(
             (enter) => {
@@ -85,33 +85,34 @@ function createBars(data, xscale, yscale) {
 }
 
 function createTooltip() {
- d3
-    .select("body")
-    .append("p")
-    .style("opacity", 0)
-    .attr("class", "tooltip")
-    .style("background-color", "white")
-    .style("padding", "0.2em")
-    .style("position", "absolute");
+    d3
+        .select("body")
+        .append("p")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "rgb(231, 231, 231)")
+        .style("padding", "0.2em")
+        .style("position", "absolute");
 }
 
 function mouseOver() {
     d3.select(".tooltip")
-    .style("opacity", 1)
-  };
+        .style("opacity", 1)
+};
 
 function mouseOut() {
     d3.select(".tooltip")
-    .style("opacity", 0)
+        .style("opacity", 0)
 }
-function mouseMove (d, data) {
-      let x = d.clientX;
-      let y = d.clientY;
-      d3.select(".tooltip")
-      .text(data.rating.average)
-      .style("left", x + "px")
-      .style("top", y + "px")
-  };
+
+function mouseMove(d, data) {
+    let x = d.clientX;
+    let y = d.clientY;
+    d3.select(".tooltip")
+        .text(data.rating.average)
+        .style("left", x + "px")
+        .style("top", y + "px")
+};
 
 d3.selectAll('#filter').on('change', (e) => {
     const selectedValue = e.target.value;
