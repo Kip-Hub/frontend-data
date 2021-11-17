@@ -18,10 +18,6 @@ const g = svg.append('g')
 const url =
     "https://api.tvmaze.com/shows/169/episodes";
 
-const color = d3.scaleOrdinal()
-    .domain(["a", "b", "c", "d", "e"])
-    .range(d3.schemeDark2);
-
 d3.json(url)
     .then((json) => {
         data = json;
@@ -32,7 +28,7 @@ d3.json(url)
 
 function createChart(data) {
     const { xscale, yscale } = createAxis(data);
-    // const Tooltip = createTooltip();
+    createTooltip();
     createBars(data, xscale, yscale);
 }
 
@@ -56,14 +52,16 @@ function createAxis(data) {
 }
 
 function createBars(data, xscale, yscale) {
+    const color = d3.scaleOrdinal()
+    .domain(["a", "b", "c", "d", "e"])
+    .range(d3.schemeDark2);    
     const rect = g.selectAll('rect')
-        .data(data, (d) => d.name).join(
+        .data(data).join(
             (enter) => {
                 const rect_enter = enter
                     .append('rect')
                     .attr('x', 0)
                     .attr('fill', (d) => { return (color(d.name)) });
-                rect_enter.append('title');
                 return rect_enter;
             },
 
@@ -74,6 +72,9 @@ function createBars(data, xscale, yscale) {
     rect
         .attr('height', yscale.bandwidth())
         .attr('y', (d) => yscale(d.name))
+        .on("mouseover", mouseOver)
+        .on("mousemove", mouseMove)
+        .on("mouseleave", mouseOut)
         .transition()
         .duration(400)
         .ease(d3.easeBackOut.overshoot(1.7))
@@ -81,17 +82,43 @@ function createBars(data, xscale, yscale) {
             return i * 10
         })
         .attr('width', d => xscale(d.rating.average))
-
-    rect.select('title').text((d) => d.rating.average);
 }
+
+function createTooltip() {
+ d3
+    .select("body")
+    .append("p")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("padding", "0.2em")
+    .style("position", "absolute");
+}
+
+function mouseOver() {
+    d3.select(".tooltip")
+    .style("opacity", 1)
+  };
+
+function mouseOut() {
+    d3.select(".tooltip")
+    .style("opacity", 0)
+}
+function mouseMove (d, data) {
+      let x = d.clientX;
+      let y = d.clientY;
+      d3.select(".tooltip")
+      .text(data.rating.average)
+      .style("left", x + "px")
+      .style("top", y + "px")
+  };
 
 d3.selectAll('#filter').on('change', (e) => {
     const selectedValue = e.target.value;
     const seasonValue = +selectedValue.split('_')[1];
     const filtered_data = data.filter(d => d.season === seasonValue);
-    width = 800 - margin.left - margin.right;
     height = 400 - margin.top - margin.bottom;
-    createChart(filtered_data)
+    createChart(filtered_data);
     cleanUpAxis();
 })
 
@@ -100,5 +127,5 @@ const cleanUpAxis = () => {
     const oldXAxis = document.getElementsByClassName("x axis")[0];
     const oldYAxis = document.getElementsByClassName("y axis")[0];
     oldYAxis.remove();
+    oldXAxis.remove();
 }
-oldXAxis.remove();
