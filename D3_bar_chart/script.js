@@ -1,4 +1,4 @@
-const margin = { top: 40, bottom: 10, left: 160, right: 20 };
+const margin = { top: 40, bottom: 10, left: 160, right: 160 };
 let width = 800 - margin.left - margin.right;
 let height = 800 - margin.top - margin.bottom;
 let data;
@@ -14,6 +14,8 @@ const svg = d3
 
 const g = svg.append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`);
+
+var colors = ['#69c242', '#64bbe3', '#ffcc00', '#ff7300', '#cf2030', '#ce23a9', '#8522cc', '#2522cc', '#2288cc', '#22c6cc'];
 
 const url =
     "https://api.tvmaze.com/shows/169/episodes";
@@ -53,15 +55,15 @@ function createAxis(data) {
 
 function createBars(data, xscale, yscale) {
     const color = d3.scaleOrdinal()
-        .domain(["a", "b", "c", "d", "e"])
-        .range(d3.schemeDark2);
+        .domain(data.length.toString())
+        .range(["#ffffcc", "#a1dab4", "#41b6c4", "#2c7fb8", "#253494"]);
     const rect = g.selectAll('rect')
         .data(data).join(
             (enter) => {
                 const rect_enter = enter
                     .append('rect')
                     .attr('x', 0)
-                    .attr('fill', (d) => { return (color(d.name)) });
+                    .attr('fill', (d) => { return (color(d)) });
                 return rect_enter;
             },
 
@@ -115,10 +117,10 @@ function mouseMove(d, data) {
 };
 
 d3.selectAll('#filter').on('change', (e) => {
+    height = 400 - margin.top - margin.bottom;
     const selectedValue = e.target.value;
     const seasonValue = +selectedValue.split('_')[1];
     const filtered_data = data.filter(d => d.season === seasonValue);
-    height = 400 - margin.top - margin.bottom;
     createChart(filtered_data);
     cleanUpAxis();
 })
