@@ -5,7 +5,7 @@
 
 <summary>Filtering the data</summary
 
-![gif](https://thumbs.gfycat.com/GargantuanGaseousCoypu-mobile.mp4)
+![gif](https://im6.ezgif.com/tmp/ezgif-6-47d6bca7779a.gif)
 
 </details>
 
