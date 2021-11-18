@@ -5,7 +5,7 @@
 
 <summary>Filtering the data</summary
 
-![gif](https://im6.ezgif.com/tmp/ezgif-6-47d6bca7779a.gif)
+![gif](https://i.imgur.com/sMnPZt4.gif)
 
 </details>
 
