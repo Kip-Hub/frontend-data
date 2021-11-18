@@ -14,7 +14,7 @@
 [⚙️ Installation](https://github.com/Kip-Hub/frontend-data#%EF%B8%8F-installation)  
 [📚 Wiki](https://github.com/Kip-Hub/frontend-data#-wiki)  
 [🧩 Resources](https://github.com/Kip-Hub/frontend-data#-resources)  
-[🙋 Sources](https://github.com/Kip-Hub/frontend-data#sources)
+[🙋 Sources](https://github.com/Kip-Hub/frontend-data#sources)  
 [📎 License](https://github.com/Kip-Hub/frontend-data#-license)  
 
 ## 🚀 Description
@@ -44,7 +44,7 @@ I will document my daily pursuits and progress in the [logboek](https://github.c
 
 Although my first intent was to use the [Episodate API](https://www.episodate.com/api), which I already used during the previous [course](https://github.com/Kip-Hub/functional-programming). However I soon realised it doesn't contain alot of data that could be useful for creating visualisations.
 
-So I started looking for another API to use instead. Resulting in the the data used in this project, now being obtained from the [TVMaze API](https://www.tvmaze.com/api), which is an API that revolves around data from tv shows.
+So I started looking for another API to use instead. Resulting in the the data used in this project, now being obtained from the [TVMaze API](https://www.tvmaze.com/api), which is an API that revolves around data from tv shows, and the episodes within them.
 
 ### 🙋 Sources
 
