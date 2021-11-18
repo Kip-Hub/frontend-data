@@ -29,7 +29,7 @@ The criteria for the project can be found [here](https://github.com/Kip-Hub/fron
 ## ⚙️ Installation
 
 If you would like to use this repository on your own computer, you can paste the following code into your terminal to create a local copy of this project.  
-(Note: you are required to have Git installed on your machine for this to work)
+(Note: you are required to have [Git](https://git-scm.com/downloads) installed on your machine for this to work)
 
 ```
 git clone https://github.com/Kip-Hub/frontend-data.git
