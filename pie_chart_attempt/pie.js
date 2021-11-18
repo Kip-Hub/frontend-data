@@ -11,57 +11,57 @@ const svg = d3.select("body")
     .append("g")
     .attr("transform", `translate(${width/2}, ${height/2})`)
 
-// const data = { a: 9.5, b: 20.2, d: 8.7, e: 12.1 }
+const data = { a: 9.5, b: 20.2, d: 8.7, e: 12.1 }
 
-// const color = d3.scaleOrdinal()
-//     .domain(["a", "b", "c", "d", "e"])
-//     .range(d3.schemeDark2);
+const color = d3.scaleOrdinal()
+    .domain(["a", "b", "c", "d", "e"])
+    .range(d3.schemeDark2);
 
-// const pie = d3.pie()
-//     .value((d) => { return d[1] })
-// const data_ready = pie(Object.entries(data))
+const pie = d3.pie()
+    .value((d) => { return d[1] })
+const data_ready = pie(Object.entries(data))
 
-// svg
-//     .selectAll('test')
-//     .data(data_ready)
-//     .join('path')
-//     .attr('d', d3.arc()
-//         .innerRadius(radius / 2)
-//         .outerRadius(radius)
-//     )
-//     .attr('fill', (d) => { return (color(d.data[1])) })
-//     .attr("stroke", "white")
-//     .style("stroke-width", "2px")
-//     .style("opacity", 0.6)
+svg
+    .selectAll('test')
+    .data(data_ready)
+    .join('path')
+    .attr('d', d3.arc()
+        .innerRadius(radius / 2)
+        .outerRadius(radius)
+    )
+    .attr('fill', (d) => { return (color(d.data[1])) })
+    .attr("stroke", "white")
+    .style("stroke-width", "2px")
+    .style("opacity", 0.6)
 
-let data;
+// let data;
 
-d3.json('https://api.tvmaze.com/shows/30202/episodes')
-    .then((json) => {
-        data = json;
-        update(data);
-    });
+// d3.json('https://api.tvmaze.com/shows/30202/episodes')
+//     .then((json) => {
+//         data = json;
+//         update(data);
+//     });
 
-function update(new_data) {
-    const color = d3.scaleOrdinal()
-        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"])
+// function update(new_data) {
+//     const color = d3.scaleOrdinal()
+//         .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"])
 
-    const pie = d3.pie()
-        .value(function(d) { return d[1] })
-    const data_ready = pie(Object.entries(new_data, (d) => d.rating.average));
+//     const pie = d3.pie()
+//         .value(function(d) { return d[1] })
+//     const data_ready = pie(Object.entries(new_data, (d) => d.rating.average));
 
 
-    svg
-        .selectAll('test')
-        .data(data_ready)
-        .join('path')
-        .attr('d', d3.arc()
-            .innerRadius(radius / 2)
-            .outerRadius(radius)
-        )
-        .attr('fill', (d) => { return (color(d.data[1])) })
-        .attr("stroke", "white")
-        .style("stroke-width", "2px")
-        .style("opacity", 0.6)
+//     svg
+//         .selectAll('test')
+//         .data(data_ready)
+//         .join('path')
+//         .attr('d', d3.arc()
+//             .innerRadius(radius / 2)
+//             .outerRadius(radius)
+//         )
+//         .attr('fill', (d) => { return (color(d.data[1])) })
+//         .attr("stroke", "white")
+//         .style("stroke-width", "2px")
+//         .style("opacity", 0.6)
 
-}
+// }
