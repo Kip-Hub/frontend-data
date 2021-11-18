@@ -38,7 +38,7 @@ function createAxis(data) { // creating the axis
     const yaxis = d3.axisLeft().scale(yscale);
     const g_yaxis = g.append('g').attr('class', 'y axis');
 
-    xscale.domain([0, d3.max(data, (d) => d.rating.average)]); // adjusting the scales to the data
+    xscale.domain([0, d3.max(data, (d) => d.rating.average)]); // adjusting the scales to the data ! xscale could also be 0 - 10 for consistency
     yscale.domain(data.map((d) => d.name));
 
     g_xaxis.transition().call(xaxis); // show values on the axis
