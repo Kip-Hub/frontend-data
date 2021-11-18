@@ -40,13 +40,13 @@ git clone https://github.com/Kip-Hub/frontend-data.git
 Everything I have done during this project can be found on the [wiki](https://github.com/Kip-Hub/frontend-data/wiki).  
 I will document my daily pursuits and progress in the [logboek](https://github.com/Kip-Hub/frontend-data/wiki/logboek) which can also be found on the wiki, along with some theoretical documentation and other project oriented documentation.
 
-## 🧩 Data/resources
+## 🧩 Data
 
 Although my first intent was to use the [Episodate API](https://www.episodate.com/api), which I already used during the previous [course](https://github.com/Kip-Hub/functional-programming). However I soon realised it doesn't contain alot of data that could be useful for creating visualisations.
 
 So I started looking for another API to use instead. Resulting in the the data used in this project, now being obtained from the [TVMaze API](https://www.tvmaze.com/api), which is an API that revolves around data from tv shows, and the episodes within them.
 
-### 🙋 Sources
+## 🙋 Resources
 
 * https://www.sgratzl.com/d3tutorial/  
 * https://observablehq.com/collection/@d3/learn-d3  
